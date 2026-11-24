@@ -88,3 +88,10 @@
 - Сборка Pages: `built`, без ошибок.
 - Публичный HTTPS-URL: `https://pogreboka.github.io/weather-dashboard-a/`.
 - Проверка вне аккаунта автора (Playwright, чистый контекст, системный Edge): страница открывается, поиск «Казань» → выбор совпадения → отображается `Казань, Татарстан, Россия`, видимо местное время, 7 строк прогноза.
+
+## Этап 5 — финальная сверка и документация
+
+- Проверены артефакты маршрута A: исходники, `AGENTS.md`, `README.md`, `JOURNAL.md`, фикстуры, unit/live/UI тесты, дизайн-skill, HTML-референс, скриншоты до/после/mobile, публичный HTTPS.
+- Актуальные проверки перед финализацией: `npm.cmd test` → 15 passed, 0 failed; `npm.cmd run test:ui` → 6 passed, 0 failed. Живой smoke-тест API ранее выполнялся успешно (`npm.cmd run test:live` → 2 passed).
+- Ограничения зафиксированы честно: `npm.ps1` блокируется PowerShell; один ранний прогноз Open-Meteo дал тайм-аут и был обработан штатно; `skill` tool не загрузил локальный skill по ID, но каталог скопирован и скрипты использованы.
+- Публикация подтверждена: `https://github.com/PogrebokA/weather-dashboard-a`, Pages build `built`, HTTPS `https://pogreboka.github.io/weather-dashboard-a/`, реальный поиск погоды работает в чистом браузерном контексте.
