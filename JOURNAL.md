@@ -79,3 +79,12 @@
 
 - Проверка на 390×844 через Playwright: горизонтальный скролл отсутствует (`document.documentElement.scrollWidth <= clientWidth+1` = `true`).
 - Сохранены видимый фокус (`:focus-visible`), skip-link, `aria-live` статус, семантические метки/заголовки, контрастная палитра teal-on-paper.
+
+## Этап 4 — деплой и проверка
+
+- Инициализирован git-репозиторий, создан коммит `67e9bae` (`Initial weather dashboard (route A)`).
+- Создан публичный репозиторий GitHub: `https://github.com/PogrebokA/weather-dashboard-a` (ветка `master`, push выполнен).
+- Включён GitHub Pages: `build_type=legacy`, source `master` `/`, `https_enforced=true`.
+- Сборка Pages: `built`, без ошибок.
+- Публичный HTTPS-URL: `https://pogreboka.github.io/weather-dashboard-a/`.
+- Проверка вне аккаунта автора (Playwright, чистый контекст, системный Edge): страница открывается, поиск «Казань» → выбор совпадения → отображается `Казань, Татарстан, Россия`, видимо местное время, 7 строк прогноза.
