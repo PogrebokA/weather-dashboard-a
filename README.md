@@ -2,6 +2,10 @@
 
 Статический погодный дашборд (маршрут A) на HTML/CSS/JavaScript без сборки, сервера приложений и БД. Данные получает из Open-Meteo Geocoding API и Forecast API без ключа.
 
+- **Версия**: 0.1.0
+- **Среда выполнения**: OpenCode, модель Big Pickle (`opencode/big-pickle`)
+- **Публикация**: https://pogreboka.github.io/weather-dashboard-a/
+
 ## Возможности
 
 - Поиск города через Open-Meteo Geocoding.
