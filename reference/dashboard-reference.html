@@ -1,0 +1,133 @@
+<!doctype html>
+<!--
+  HTML-референс для погодного дашборда.
+  Происхождение: создан в рамках проекта weather-dashboard-a как дизайн-артефакт.
+  Палитра и типографика получены через Taste Skill 2.5.1 (commit 6c0b5c78f5d31776e2210305abaa210cdc0030bf):
+  deal --page software --trade "weather dashboard" → palette teal-on-paper, type chivo.
+  Это статичный образец желаемого вида, не рабочее приложение.
+-->
+<html lang="ru" data-radius="soft" data-type="software">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="page-type" content="software" />
+  <meta name="site-kind" content="software" />
+  <title>Референс: погодный дашборд</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400..700&family=Chivo+Mono:wght@400..500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f9f8;
+      --surface: #ebf0ee;
+      --ink: #06525c;
+      --muted: #2f737d;
+      --accent: #06525c;
+      --accent-ink: #f7f9f8;
+      --hairline: color-mix(in srgb, var(--ink) 14%, transparent);
+      --font-text: "Chivo", system-ui, sans-serif;
+      --font-mono: "Chivo Mono", ui-monospace, Consolas, monospace;
+      --r-lg: 12px;
+      --r-md: 8px;
+      --r-sm: 6px;
+      --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+      --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 16px/1.6 var(--font-text);
+      padding: var(--s-5);
+    }
+    .wrap { max-width: 1120px; margin-inline: auto; }
+    .top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-4); border-bottom: 1px solid var(--hairline); padding-bottom: var(--s-4); }
+    .brand { font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .search { display: flex; gap: var(--s-2); margin: var(--s-5) 0; }
+    .search input { flex: 1; min-height: 44px; padding: 0 var(--s-3); border: 1px solid var(--hairline); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); font: inherit; }
+    .btn { min-height: 44px; padding: 0 var(--s-5); border: 1px solid var(--accent); border-radius: var(--r-sm); background: var(--accent); color: var(--accent-ink); font: 500 16px var(--font-text); cursor: pointer; }
+    .panel { background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: var(--s-5); }
+    .city { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-3); margin-bottom: var(--s-4); }
+    h1 { margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em; }
+    .local { color: var(--muted); font-size: 14px; }
+    .current { display: grid; grid-template-columns: auto 1fr; gap: var(--s-5); align-items: center; }
+    .temp { font: 400 56px/1 var(--font-mono); letter-spacing: -0.03em; }
+    .condition { font-size: 18px; }
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--s-3); margin-top: var(--s-4); }
+    .fact { border-top: 1px solid var(--hairline); padding-top: var(--s-2); }
+    .fact dt { font-size: 13px; font-weight: 500; color: var(--muted); }
+    .fact dd { margin: 0; font: 400 18px var(--font-mono); }
+    h2 { margin: var(--s-6) 0 var(--s-3); font-size: 18px; font-weight: 500; }
+    .hours { display: grid; grid-auto-flow: column; grid-auto-columns: 108px; gap: var(--s-2); overflow-x: auto; padding-bottom: var(--s-2); }
+    .hour { background: var(--bg); border: 1px solid var(--hairline); border-radius: var(--r-md); padding: var(--s-3); display: grid; gap: var(--s-1); }
+    .hour .t { font: 400 18px var(--font-mono); }
+    .hour .h { font-size: 13px; font-weight: 500; color: var(--muted); }
+    .hour .p { font-size: 13px; color: var(--muted); }
+    .days { list-style: none; margin: 0; padding: 0; }
+    .day { display: grid; grid-template-columns: 120px 1fr auto auto; gap: var(--s-3); align-items: baseline; padding: var(--s-3) 0; border-bottom: 1px solid var(--hairline); }
+    .day .date { font-weight: 500; }
+    .day .num { font: 400 16px var(--font-mono); white-space: nowrap; }
+    .day .prob { color: var(--muted); font-size: 14px; white-space: nowrap; }
+    footer { margin-top: var(--s-6); padding-top: var(--s-4); border-top: 1px solid var(--hairline); color: var(--muted); font-size: 14px; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    @media (max-width: 640px) {
+      body { padding: var(--s-4); }
+      .current { grid-template-columns: 1fr; }
+      .temp { font-size: 44px; }
+      .day { grid-template-columns: 96px 1fr auto; }
+      .day .prob { grid-column: 2 / -1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <span class="brand">Погодный дашборд</span>
+      <span class="meta">Open-Meteo · маршрут A</span>
+    </header>
+
+    <form class="search">
+      <input type="search" value="Казань" aria-label="Город" />
+      <button class="btn" type="button">Найти</button>
+    </form>
+
+    <section class="panel">
+      <div class="city">
+        <h1>Казань, Татарстан, Россия</h1>
+        <span class="local">Местное время: пн, 23 нояб., 17:46</span>
+      </div>
+      <div class="current">
+        <span class="temp">0 °C</span>
+        <span class="condition">Переменная облачность</span>
+      </div>
+      <dl class="facts">
+        <div class="fact"><dt>Ощущается как</dt><dd>-3 °C</dd></div>
+        <div class="fact"><dt>Влажность</dt><dd>78 %</dd></div>
+        <div class="fact"><dt>Ветер</dt><dd>3 км/ч</dd></div>
+        <div class="fact"><dt>Давление</dt><dd>1002 гПа</dd></div>
+      </dl>
+    </section>
+
+    <h2>Ближайшие 24 часа</h2>
+    <div class="hours">
+      <div class="hour"><span class="h">18:00</span><span class="t">0 °C</span><span class="p">0 %</span></div>
+      <div class="hour"><span class="h">19:00</span><span class="t">0 °C</span><span class="p">0 %</span></div>
+      <div class="hour"><span class="h">20:00</span><span class="t">0 °C</span><span class="p">0 %</span></div>
+      <div class="hour"><span class="h">21:00</span><span class="t">-1 °C</span><span class="p">10 %</span></div>
+      <div class="hour"><span class="h">22:00</span><span class="t">-1 °C</span><span class="p">20 %</span></div>
+    </div>
+
+    <h2>7 дней</h2>
+    <ul class="days">
+      <li class="day"><span class="date">пн, 23 нояб.</span><span>Пасмурно</span><span class="num">1 / -1 °C</span><span class="prob">3 %</span></li>
+      <li class="day"><span class="date">вт, 24 нояб.</span><span>Сильный снег</span><span class="num">0 / -2 °C</span><span class="prob">100 %</span></li>
+      <li class="day"><span class="date">ср, 25 нояб.</span><span>Снежные зёрна</span><span class="num">1 / -2 °C</span><span class="prob">100 %</span></li>
+    </ul>
+
+    <footer>Данные: Open-Meteo · CC BY 4.0 · некоммерческое использование.</footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru" data-radius="soft" data-type="software">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="page-type" content="software" />
+  <meta name="site-kind" content="software" />
+  <title>Погодный дашборд — маршрут A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400..700&family=Chivo+Mono:wght@400..500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="wrap">
+    <header class="top">
+      <span class="brand">Погодный дашборд</span>
+      <span class="meta">Open-Meteo · маршрут A</span>
+    </header>
+
+    <main id="main">
+      <form id="search-form" class="search" autocomplete="off">
+        <label class="visually-hidden" for="city-input">Город</label>
+        <input id="city-input" name="city" type="search" placeholder="Например, Казань" />
+        <button class="btn" type="submit">Найти</button>
+      </form>
+
+      <p id="status" role="status" aria-live="polite" hidden></p>
+      <section id="results" aria-label="Найденные города"></section>
+
+      <section id="dashboard" class="dashboard" hidden aria-label="Прогноз погоды">
+        <div class="dashboard-head">
+          <h1 id="city-title"></h1>
+          <p id="local-time" class="local"></p>
+        </div>
+
+        <section id="current" class="panel" aria-label="Текущие условия"></section>
+
+        <section aria-label="Почасовой прогноз">
+          <h2>Ближайшие 24 часа</h2>
+          <div id="hourly" class="hourly"></div>
+        </section>
+
+        <section aria-label="Прогноз на неделю">
+          <h2>7 дней</h2>
+          <ul id="daily" class="daily"></ul>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      Данные предоставлены <a href="https://open-meteo.com/" rel="noopener">Open-Meteo</a> ·
+      лицензия <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a> ·
+      некоммерческое использование.
+    </footer>
+  </div>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

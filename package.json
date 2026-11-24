@@ -1,0 +1,16 @@
+{
+  "name": "weather-dashboard-a",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Погодный дашборд на Open-Meteo (маршрут A).",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "test": "node --test tests/unit/",
+    "test:live": "node --test tests/live/",
+    "test:ui": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}
